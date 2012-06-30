@@ -29,8 +29,6 @@ case "$1" in
       iwconfig wlan0 power on &> /dev/null
       # screen powersave
       for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
-	  xset +dpms
-	  xset dpms 0 0 120
     ;;
     false) # Return to default on AC power
       # bus
@@ -60,7 +58,6 @@ case "$1" in
       iwconfig wlan0 power off &> /dev/null
       # screen powersave
       for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
-      xset -dpms
-	  ;;
+      ;;
 esac
 exit 0
