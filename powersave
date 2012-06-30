@@ -1,66 +1,66 @@
 #!/bin/sh
 
 case "$1" in
-    true) # Enable power saving settings on battery
-      # bus
-      for i in /sys/bus/*/devices/*/power/control; do echo auto > $i; done
-      # usb autosuspend
-      for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
-      for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
-      # nmi_watchdog -- DISABLED AT KERNEL
-      #echo 0 > /proc/sys/kernel/nmi_watchdog
-      # cpu
-      for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo powersave > $i; done
-      # aspm
-      echo powersave > /sys/module/pcie_aspm/parameters/policy
-      # kernel write mode
-      echo 5 > /proc/sys/vm/laptop_mode
-      echo 90 > /proc/sys/vm/dirty_ratio
-      echo 1 > /proc/sys/vm/dirty_background_ratio
-      echo 60000 > /proc/sys/vm/dirty_expire_centisecs
-      echo 60000 > /proc/sys/vm/dirty_writeback_centisecs
-      # disk powersave
-      hdparm -S 6 -B 254 -a 2048 /dev/sda &> /dev/null
-      for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
-      # sound card powersave
-      echo 1 > /sys/module/snd_hda_intel/parameters/power_save
-      echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
-      # wlan0 powersave
-      iwconfig wlan0 power on &> /dev/null
-      # screen powersave
-      for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
+	true) # Enable power saving settings on battery
+	  # bus
+	  for i in /sys/bus/*/devices/*/power/control; do echo auto > $i; done
+	  # usb autosuspend
+	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
+	  for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
+	  # nmi_watchdog -- DISABLED AT KERNEL
+	  #echo 0 > /proc/sys/kernel/nmi_watchdog
+	  # cpu
+	  for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo powersave > $i; done
+	  # aspm
+	  echo powersave > /sys/module/pcie_aspm/parameters/policy
+	  # kernel write mode
+	  echo 5 > /proc/sys/vm/laptop_mode
+	  echo 90 > /proc/sys/vm/dirty_ratio
+	  echo 1 > /proc/sys/vm/dirty_background_ratio
+	  echo 60000 > /proc/sys/vm/dirty_expire_centisecs
+	  echo 60000 > /proc/sys/vm/dirty_writeback_centisecs
+	  # disk powersave
+	  hdparm -S 6 -B 254 -a 2048 /dev/sda &> /dev/null
+	  for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
+	  # sound card powersave
+	  echo 1 > /sys/module/snd_hda_intel/parameters/power_save
+	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
+	  # wlan0 powersave
+	  iwconfig wlan0 power on &> /dev/null
+	  # screen powersave
+	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
 	  xset +dpms
 	  xset 0 0 120
-    ;;
-    false) # Return to default on AC power
-      # bus
-      # NOTHING YET
-      # usb autosuspend
-      for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
-      #for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
-      # nmi_watchdog
-      # DISABLED AT KERNEL
-      # cpu
-      for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo ondemand > $i; done
-      # aspm
-      echo default > /sys/module/pcie_aspm/parameters/policy
-      # kernel write mode
-      echo 0 > /proc/sys/vm/laptop_mode
-      echo 30 > /proc/sys/vm/dirty_ratio
-      echo 30 > /proc/sys/vm/dirty_background_ratio
-      echo 600 > /proc/sys/vm/dirty_expire_centisecs
-      echo 600 > /proc/sys/vm/dirty_writeback_centisecs
-      # disk powersave
-      hdparm -S 0 -B 254 -a 2048 /dev/sda &> /dev/null
-      for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo max_performance > $i; done
-      # sound card powersave
-      echo 0 > /sys/module/snd_hda_intel/parameters/power_save
-      echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
-      # wlan0 powersave
-      iwconfig wlan0 power off &> /dev/null
-      # screen powersave
-      for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
-      xset -dpms
+	  ;;
+	false) # Return to default on AC power
+	  # bus
+	  # NOTHING YET
+	  # usb autosuspend
+	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
+	  #for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
+	  # nmi_watchdog
+	  # DISABLED AT KERNEL
+	  # cpu
+	  for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo ondemand > $i; done
+	  # aspm
+	  echo default > /sys/module/pcie_aspm/parameters/policy
+	  # kernel write mode
+	  echo 0 > /proc/sys/vm/laptop_mode
+	  echo 30 > /proc/sys/vm/dirty_ratio
+	  echo 30 > /proc/sys/vm/dirty_background_ratio
+	  echo 600 > /proc/sys/vm/dirty_expire_centisecs
+	  echo 600 > /proc/sys/vm/dirty_writeback_centisecs
+	  # disk powersave
+	  hdparm -S 0 -B 254 -a 2048 /dev/sda &> /dev/null
+	  for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo max_performance > $i; done
+	  # sound card powersave
+	  echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
+	  # wlan0 powersave
+	  iwconfig wlan0 power off &> /dev/null
+	  # screen powersave
+	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
+	  xset -dpms
 	  ;;
 esac
 exit 0
