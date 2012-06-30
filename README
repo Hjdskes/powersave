@@ -4,6 +4,7 @@ The script will need the following dependencies to run:
 1. hdparm
 2. wireless_tools
 3. upower
+4. xset
 Also, if you're using a standalone WM, you will have to start the upower daemon yourself. You can do this by adding the following to your ~/.xinitrc:
 upower -e &
 
