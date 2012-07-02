@@ -30,7 +30,7 @@ case "$1" in
 	  # screen powersave
 	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
 	  xset +dpms
-	  xset 0 0 120
+	  xset dpms 0 0 120
 	  ;;
 	false) # Return to default on AC power
 	  # bus
