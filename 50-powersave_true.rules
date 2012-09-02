@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Battery", ATTR{status}=="Discharging", RUN+="/usr/bin/powersave true"
