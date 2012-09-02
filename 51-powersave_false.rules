@@ -1,2 +1,2 @@
-ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Battery", ATTR{status}=="Charging", RUN+="/usr/bin/powersave false"
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/powersave false"
 
