@@ -1,14 +1,13 @@
-This is a powersave script for Linux. It's heavily based on Taylorchu's Powerdown (also found on Github), but I have adapted it to match my own setup. That means that this script will NOT work on any setup so please CHECK this before running it on your computer! Things might break otherwise and I will NOT be responsible for any damage that has been done. This script gives me roughly 1:30/2:00 hours of battery life, on a battery that would otherwise last ~45 minutes. (yea, I know, my battery is fried)
+This is a powersave script for Linux. Initially, I've created it for my own laptop. That means that this script will NOT work on any setup so please CHECK this before running it on your computer! Things might break otherwise and I will NOT be responsible for any damage that has been done. This script gives me roughly 1:30/2:00 hours of battery life, on a battery that would otherwise last ~45 minutes. (yea, I know, my battery is fried)
 
 The script will need the following dependencies to run:
 1. hdparm
 2. wireless_tools
-3. upower
-4. xset
-Also, if you're using a standalone WM, you will have to start the upower daemon yourself. You can do this by adding the following to your ~/.xinitrc:
-upower -e &
+3. xset
+4. udev
 
-This script has to be placed in /etc/pm/power.d/ and when done so, it will automatically kick in the powersave settings when you're on battery and restore the defaults when you're not. I have placed all the available powersave options in the script, except for:
+This script has to be placed in /usr/bin and when done so, one can run powersave true|false and the powersaving will kick in. I have also made two udev rules that will automatically run these commands depending on battery state (Charging, discharging).
+I have placed all the available powersave options in the script, except for:
 - HAL CD polling; HAL is deprecated software and as such, I don't use it. I have not found another way to disable CD polling yet, but perhaps this is not even necessary anymore?
 
 Things you should edit, should you use this on your setup:
