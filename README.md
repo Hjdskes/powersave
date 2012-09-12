@@ -13,8 +13,8 @@ I have placed all the available powersave options in the script, except for:
 Things you should edit, should you use this on your setup:
 * NMI watchdog; I have this disabled at kernel level. If you don't, then uncomment the line in the powersave script. This option is safe to do! Should you want to disable this at kernel level too, use: `nmi_watchdog=0`
 * ASPM powersave; this option is safe! To be able to write to this file you have to use a kernel parameter at boot: `pcie_aspm=force`
-* Disk powersave; as I have only one HDD (laptop), I have edited the wildcard that Taylorchu originally uses. If you have multiple HDD's and want run powersave on all of them, then use this:
+* Disk powersave; as I have only one HDD (laptop), I have edited the wildcard that Taylorchu originally uses. If you have multiple HDD's and want to run powersave on all of them, then use this:
   `for dev in $(awk '/^\/dev\/sd/ {print $1}' /etc/mtab); do hdparm -S 6 -B 254 -a 2048 $dev; done`  
 Also, note that I use -B254. I hate the clicking noises my HDD would make otherwise, but this is not power-efficient. If you want maximum powersave, use -B1. **THIS CAN HURT YOUR HARDDRIVE, SO BE CAREFUL.**
-* Screen powersave; this option is safe! The numbers of brightness differ per manufacturer. You should check yours. Do so by setting your screen on maximum brightness and then running: cat/sys/class/backlight/acpi_video*/brightness
+* Screen powersave; this option is safe! The numbers of brightness differ per manufacturer. You should check yours. Do so by setting your screen on maximum brightness and then running `cat/sys/class/backlight/acpi_video*/brightness`
 Then, lookup the `false)` part in the script and change the value. Mine is set to 9.
