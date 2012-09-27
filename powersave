@@ -6,7 +6,7 @@ case "$1" in
 	  for i in /sys/bus/*/devices/*/power/control; do echo auto > $i; done
 	  # usb autosuspend
 	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
-	  for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
+	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
 	  # nmi_watchdog -- DISABLED AT KERNEL
 	  #echo 0 > /proc/sys/kernel/nmi_watchdog
 	  # cpu
@@ -26,7 +26,6 @@ case "$1" in
 	  echo 1 > /sys/module/snd_hda_intel/parameters/power_save
 	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
 	  # wlan0 powersave
-	  # iwconfig wlan0 power on &> /dev/null
 	  iw dev wlan0 set power_save on &> /dev/null
 	  # screen powersave
 	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
@@ -38,7 +37,7 @@ case "$1" in
 	  # NOTHING YET
 	  # usb autosuspend
 	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
-	  #for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
+	  #for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
 	  # nmi_watchdog
 	  # DISABLED AT KERNEL
 	  # cpu
@@ -58,7 +57,6 @@ case "$1" in
 	  echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
 	  # wlan0 powersave
-	  #iwconfig wlan0 power off &> /dev/null
       iw dev wlan0 set power_save off &> /dev/null
 	  # screen powersave
 	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
