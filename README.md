@@ -5,10 +5,9 @@ The script will need the following dependencies to run:
 * wireless_tools
 * xset
 * udev
+* udisks
 
-This script has to be placed in `/usr/bin` and when done so, one can run `powersave true|false` and the powersaving will kick in. I have also made a udev rule that will automatically run these commands depending on battery state (Charging, discharging).
-I have placed all the available powersave options in the script, except for:
-* HAL CD polling; HAL is deprecated software and as such, I don't use it. I have not found another way to disable CD polling yet, but perhaps this is not even necessary anymore?
+This script has to be placed in `/usr/bin` and when done so, one can run `powersave true|false` and the powersaving will kick in. I have also made a udev rule that will automatically run these commands depending on battery state (Charging, discharging). This rule will also enable|disable CD polling by Udisks.
 
 Things you should edit, should you use this on your setup:
 * NMI watchdog; I have this disabled at kernel level. If you don't, then uncomment the line in the powersave script. This option is safe to do! Should you want to disable this at kernel level too, use: `nmi_watchdog=0`
