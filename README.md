@@ -17,3 +17,7 @@ Things you should edit, should you use this on your setup:
 Also, note that I use -B254. I hate the clicking noises my HDD would make otherwise, but this is not power-efficient. If you want maximum powersave, use -B1. **THIS CAN HURT YOUR HARDDRIVE, SO BE CAREFUL.**
 * Screen powersave; this option is safe! The numbers of brightness differ per manufacturer. You should check yours. Do so by setting your screen on maximum brightness and then running `cat/sys/class/backlight/acpi_video*/brightness`
 Then, lookup the `false)` part in the script and change the value. Mine is set to 9.
+
+ToDo:
+* Provide an easy way to blacklist modules
+	/etc/modprobe.d/blacklist.conf
