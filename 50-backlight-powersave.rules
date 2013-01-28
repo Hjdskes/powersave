@@ -3,7 +3,7 @@
 
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/xset +dpms"
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/xset 0 0 120"
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done"
+ACTION=="add", KERNEL=="acpi_video0", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0" ATTR{backlight/brightness}="0"
 
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done"
+ACTION=="add", KERNEL=="acpi_video0", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1" ATTR{backlight/brightness}="9"
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/xset -dpms"
