@@ -1,0 +1,4 @@
+# /etc/udev/rules.d/50-pci-powersave.rules
+# vim: ft=udevrules
+
+ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"

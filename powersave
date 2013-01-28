@@ -5,8 +5,8 @@ case "$1" in
 	  # bus
 	  for i in /sys/bus/*/devices/*/power/control; do echo auto > $i; done
 	  # usb autosuspend
-	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
-	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
+	  #for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
+	  #for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
 	  # nmi_watchdog -- DISABLED AT KERNEL
 	  #echo 0 > /proc/sys/kernel/nmi_watchdog
 	  # cpu
@@ -21,22 +21,22 @@ case "$1" in
 	  echo 60000 > /proc/sys/vm/dirty_writeback_centisecs
 	  # disk powersave
 	  hdparm -S 6 -B 254 -a 2048 /dev/sda &> /dev/null
-	  for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
+	  #for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
 	  # sound card powersave
 	  echo 1 > /sys/module/snd_hda_intel/parameters/power_save
 	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
 	  # wlan0 powersave
-	  iw dev wlan0 set power_save on &> /dev/null
+	  #iw dev wlan0 set power_save on &> /dev/null
 	  # screen powersave
-	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
-	  xset +dpms
-	  xset dpms 0 0 120
+	  #for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
+	  #xset +dpms
+	  #xset dpms 0 0 120
 	  ;;
 	false) # Return to default on AC power
 	  # bus
 	  # NOTHING YET
 	  # usb autosuspend
-	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
+	  #for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
 	  #for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
 	  # nmi_watchdog
 	  # DISABLED AT KERNEL
@@ -52,15 +52,15 @@ case "$1" in
 	  echo 600 > /proc/sys/vm/dirty_writeback_centisecs
 	  # disk powersave
 	  hdparm -S 0 -B 254 -a 2048 /dev/sda &> /dev/null
-	  for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo max_performance > $i; done
+	  #for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo max_performance > $i; done
 	  # sound card powersave
 	  echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
 	  # wlan0 powersave
-      iw dev wlan0 set power_save off &> /dev/null
+      #iw dev wlan0 set power_save off &> /dev/null
 	  # screen powersave
-	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
-	  xset -dpms
+	  #for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
+	  #xset -dpms
 	  ;;
 esac
 exit 0
