@@ -5,8 +5,8 @@ case "$1" in
 	  # bus
 	  for i in /sys/bus/*/devices/*/power/control; do echo auto > $i; done
 	  # usb autosuspend
-	  #for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
-	  #for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
+	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
+	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
 	  # nmi_watchdog -- DISABLED AT KERNEL
 	  #echo 0 > /proc/sys/kernel/nmi_watchdog
 	  # cpu
@@ -36,8 +36,8 @@ case "$1" in
 	  # bus
 	  # NOTHING YET
 	  # usb autosuspend
-	  #for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
-	  #for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
+	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
+	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
 	  # nmi_watchdog
 	  # DISABLED AT KERNEL
 	  # cpu
