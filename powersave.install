@@ -1,0 +1,3 @@
+post_install() {
+    echo "You might have to restart your computer before the udev rules will work properly."
+}
