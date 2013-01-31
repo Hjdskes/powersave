@@ -29,4 +29,4 @@ These modules can be blacklisted to save power:
 * ohci1394
 * firewire-ohci
 
-In Arch Linux, add this list to /etc/modprobe.d/blacklist.conf to have them all blacklisted at boot.
+In Arch Linux, add this list to `/etc/modprobe.d/blacklist.conf` to have them all blacklisted at boot.
