@@ -1,5 +1,5 @@
 pkgname=powersave
-pkgver=20130128
+pkgver=20130131
 pkgrel=1
 pkgdesc='Enables powersave based on battery state'
 arch=('any')
