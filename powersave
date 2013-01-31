@@ -57,7 +57,7 @@ case "$1" in
 	  echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
 	  # wlan0 powersave
-      iw dev wlan0 set power_save off &> /dev/null
+	  iw dev wlan0 set power_save off &> /dev/null
 	  # screen powersave
 	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 9 > $i; done
 	  xset -dpms
