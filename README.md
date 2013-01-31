@@ -19,6 +19,13 @@ Also, note that I use -B254. I hate the clicking noises my HDD would make otherw
 Then, lookup the `false)` part in the script and change the value. Mine is set to 9.
 * Battery line in the systemd sleep hook, your setup might have a different path.
 
-ToDo:
-* Provide an easy way to blacklist modules
-	/etc/modprobe.d/blacklist.conf
+These modules can be blacklisted to save power:
+* btusb
+* bluetooth
+* uhci_hcd
+* pcmcia
+* yenta_socket
+* ipw2200
+* ohci1394
+* firewire-ohci
+

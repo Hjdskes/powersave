@@ -34,7 +34,7 @@ case "$1" in
 	  ;;
 	false) # Return to default on AC power
 	  # bus
-	  # NOTHING YET
+	  for i in /sys/bus/*/devices/*/power/control; do echo on > $i; done
 	  # usb autosuspend
 	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 600 > $i; done
 	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
