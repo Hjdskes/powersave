@@ -1,5 +1,6 @@
 # /etc/udev/rules.d/50-usb-powersave.rules
 # vim: ft=udevrules
 
-ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend" ATTR{power/autosuspend}="1"
 ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control" ATTR{power/control}="auto"
+ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ENV{POWER_SUPPLY_ONLINE}=="0" ATTR{power/autosuspend}="1"
+ACTION=="add", SUBSYSTEM=="usb", TEST=="power/autosuspend", ENV{POWER_SUPPLY_ONLINE}=="1" ATTR{power/autosuspend}="600"
