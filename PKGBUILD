@@ -28,8 +28,8 @@ build() {
 }
 
 pkgver() {
-    cd "$srcdir/$_gitname"
-    git log -1 --format="%cd" --date=short | sed 's\-\.\g'
+	cd "$srcdir/$_gitname"
+	git log -1 --format="%cd" --date=short | sed 's\-\.\g'
 }
 
 package() {
