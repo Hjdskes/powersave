@@ -14,11 +14,6 @@ install='powersave.install'
 _gitroot="https://github.com/Unia/$pkgbase"
 _gitname="$pkgbase"
 
-pkgver() {
-    cd "$srcdir/$_gitname"
-    git log -1 --format="%cd" --date=short | sed 's|-|.|g'
-}
-
 build() {
 	cd "$srcdir"
 	msg "Connecting to GIT server...."
@@ -30,6 +25,11 @@ build() {
  		cd $_gitname
 	fi
 	sg "GIT checkout done or server timeout"
+}
+
+pkgver() {
+    cd "$srcdir/$_gitname"
+    git log -1 --format="%cd" --date=short | sed 's\-\.\g'
 }
 
 package() {
