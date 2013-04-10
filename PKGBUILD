@@ -1,37 +1,28 @@
+# Maintainer: Unia <jthidskes@outlook.com> 
+
 pkgname=powersave-git
-pkgbase=powersave
-pkgver=2013.03.28
+_gitname=powersave
+pkgver=2013.04.10
 pkgrel=1
-pkgdesc='Enables powersave based on battery state'
+pkgdesc="Powersave script, compatible with systemd through udev rules"
 arch=('any')
-url='https://github.com/Unia/Powersave'
+url="https://github.com/Unia/powersave"
 license=('GPL2')
-depends=('iw' 'hdparm' 'xorg-xset' 'systemd-tools' 'udisks2')
+depends=('bash' 'iw' 'hdparm' 'xorg-xset' 'systemd-tools' 'udisks2')
 makedepends=('git')
-conflicts=('powerdown')
-install='powersave.install'
-
-_gitroot="https://github.com/Unia/$pkgbase"
-_gitname="$pkgbase"
-
-build() {
-	cd "$srcdir"
-	msg "Connecting to GIT server...."
-	if [ -d $_gitname ] ; then
-		cd $_gitname && git pull origin
-		msg "The local files are updated."
-	else
-		git clone --depth=1 $_gitroot $_gitname
- 		cd $_gitname
-	fi
-	sg "GIT checkout done or server timeout"
-}
+source=('git://github.com/Unia/powersave.git')
+md5sums=('SKIP')
 
 pkgver() {
-	cd "$srcdir/$_gitname"
-	git log -1 --format="%cd" --date=short | sed 's\-\.\g'
+  cd $_gitname
+  git log -1 --format="%cd" --date=short | sed 's|-|.|g'
+}
+
+build() {
+  :
 }
 
 package() {
-	make DESTDIR="$pkgdir" install
+  cd $_gitname
+  make PREFIX=/usr DESTDIR="$pkgdir" install
 }
