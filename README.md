@@ -1,7 +1,7 @@
 Powersave
 =========
 
-This is a powersavnge script for Linux. Initially, I've created it for my own laptop. That means that this script will **not** work on any setup so please **check** this before running it on your computer! Things might break otherwise and I will **not** be responsible for any damage that has been done. This script gives me roughly 1:30/2:00 hours of battery life, on a battery that would otherwise last ~45 minutes. (yea, I know, my battery is fried)
+This is a powersaving script for Linux. Initially, I've created it for my own laptop. That means that this script will **not** work on every setup so please **check** this before running it on your computer! Things might break otherwise and I will **not** be responsible for any damage that has been done. This script gives me roughly 1:30/2:00 hours of battery life, on a battery that would otherwise last ~45 minutes. (yea, I know, my battery is fried)
 
 Installation
 ------------
@@ -13,12 +13,12 @@ The script will need the following dependencies to run:
 * udev
 * udisks
 
-Just run `make install` as root to install the script and udev rules.
+Just run `make install` as root to install the script and the udev rules.
 
 Usage
 -----
 
-Once the script is installed, one can run `powersave true|false` and the powersaving will kick in. The udev rule will automatically run these commands depending on battery state (Charging, discharging). The other udev rule will also enable|disable CD polling by udisks, depending on battery state.
+Once the script is installed, one can run `powersave true | false` and the powersaving will kick in. The udev rule will automatically run these commands depending on the battery state (Charging, discharging). The other udev rule will also enable or disable CD polling by udisks, depending on the battery state.
 
 Configuration
 -------------
