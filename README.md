@@ -1,4 +1,10 @@
-This is a powersave script for Linux. Initially, I've created it for my own laptop. That means that this script will **not** work on any setup so please **check** this before running it on your computer! Things might break otherwise and I will **not** be responsible for any damage that has been done. This script gives me roughly 1:30/2:00 hours of battery life, on a battery that would otherwise last ~45 minutes. (yea, I know, my battery is fried)
+Powersave
+=========
+
+This is a powersavnge script for Linux. Initially, I've created it for my own laptop. That means that this script will **not** work on any setup so please **check** this before running it on your computer! Things might break otherwise and I will **not** be responsible for any damage that has been done. This script gives me roughly 1:30/2:00 hours of battery life, on a battery that would otherwise last ~45 minutes. (yea, I know, my battery is fried)
+
+Installation
+------------
 
 The script will need the following dependencies to run:
 * hdparm
@@ -7,7 +13,15 @@ The script will need the following dependencies to run:
 * udev
 * udisks
 
-This script has to be placed in `/usr/bin` and when done so, one can run `powersave true|false` and the powersaving will kick in. I have also made a udev rule that will automatically run these commands depending on battery state (Charging, discharging). This rule will also enable|disable CD polling by Udisks.
+Just run `make install` as root to install the script and udev rules.
+
+Usage
+-----
+
+Once the script is installed, one can run `powersave true|false` and the powersaving will kick in. The udev rule will automatically run these commands depending on battery state (Charging, discharging). The other udev rule will also enable|disable CD polling by udisks, depending on battery state.
+
+Configuration
+-------------
 
 Things you should edit, should you use this on your setup:
 * NMI watchdog; I have this disabled at kernel level. If you don't, then uncomment the line in the powersave script. This option is safe to do! Should you want to disable this at kernel level too, use: `nmi_watchdog=0`
@@ -30,3 +44,8 @@ These modules can be blacklisted to save power:
 * firewire-ohci
 
 In Arch Linux, add this list to `/etc/modprobe.d/blacklist.conf` to have them all blacklisted at boot.
+
+ToDo
+----
+
+* Set more aggresive power savings
