@@ -2,6 +2,7 @@ install:
 	mkdir -p $(DESTDIR)/usr/bin/
 	mkdir -p $(DESTDIR)/lib/udev/rules.d/
 	mkdir -p $(DESTDIR)/etc/modprobe.d
+	mkdir -p $(DESTDIR)/usr/lib/systemd/system-sleep/
 
 	install -m 0755 scripts/powersave $(DESTDIR)/usr/bin/powersave
 	install -m 0644 rules/50-powersave.rules $(DESTDIR)/lib/udev/rules.d/50-powersave.rules
