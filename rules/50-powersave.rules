@@ -1,4 +1,2 @@
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/powersave true"
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/powersave false"
-KERNEL=="sr0", SUBSYSTEM=="block", ENV{POWER_SUPPLY_ONLINE}=="0", ENV{UDISKS_DISABLE_POLLING}="1"
-KERNEL=="sr0", SUBSYSTEM=="block", ENV{POWER_SUPPLY_ONLINE}=="1", ENV{UDISKS_DISABLE_POLLING}="0"
