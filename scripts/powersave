@@ -63,7 +63,7 @@ case "$1" in
 	  # wlan0 powersave
 	  iw dev wlp3s0 set power_save off &> /dev/null
 	  # screen powersave
-	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 78 > $i; done
+	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 100 > $i; done
 	  xset -dpms
 	  ;;
 esac
