@@ -30,7 +30,7 @@ case "$1" in
 	  # wlan0 powersave
 	  iw dev wlp3s0 set power_save on &> /dev/null
 	  # screen powersave
-	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 0 > $i; done
+	  for i in /sys/class/backlight/acpi_video*/brightness; do echo 50 > $i; done
 	  xset +dpms
 	  xset dpms 0 0 120
 	  ;;
@@ -43,7 +43,7 @@ case "$1" in
 	  # nmi_watchdog - disabled at kernel
 	  #echo 1 > /proc/sys/kernel/nmi_watchdog
 	  # cpu
-	  for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo ondemand > $i; done
+	  for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo powersave > $i; done
 	  # aspm
 	  echo default > /sys/module/pcie_aspm/parameters/policy
 	  # kernel write mode
