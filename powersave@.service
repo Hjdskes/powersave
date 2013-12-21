@@ -1,7 +1,0 @@
-[Unit]
-Description=Run the powersave script
-
-[Service]
-Type=oneshot
-RemainAfterExit=yes
-ExecStart=/usr/bin/powersave %I
