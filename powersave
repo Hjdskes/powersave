@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ $EUID -ne 0 ]; then
+	echo "This script should be run as root." > /dev/stderr
+	exit 1
+fi
+
 case "$1" in
 	true) # Enable power saving settings on battery
 		# bus
