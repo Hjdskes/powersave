@@ -5,11 +5,11 @@ install:
 	mkdir -p $(DESTDIR)/usr/lib/systemd/system/
 
 	install -m 0755 powersave $(DESTDIR)/usr/bin/powersave
+	install -m 0644 powersave@.service $(DESTDIR)/usr/lib/systemd/system/
+	install -m 0644 blacklist.conf $(DESTDIR)/etc/modprobe.d/blacklist.conf
 	install -m 0644 rules/50-powersave.rules $(DESTDIR)/lib/udev/rules.d/50-powersave.rules
 	install -m 0644 rules/51-eth-down.rules $(DESTDIR)/lib/udev/rules.d/51-eth-down.rules
 	install -m 0644 rules/52-disable-wol.rules $(DESTDIR)/lib/udev/rules.d/52-disable-wol.rules
-	install -m 0644 files/powersave@.service $(DESTDIR)/usr/lib/systemd/system/
-	install -m 0644 files/blacklist.conf $(DESTDIR)/etc/modprobe.d/blacklist.conf
 
 uninstall:
 	rm -f /usr/bin/powersave
