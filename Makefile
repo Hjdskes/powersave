@@ -1,12 +1,12 @@
 install:
-	mkdir -p $(DESTDIR)/lib/udev/rules.d/
+	mkdir -p $(DESTDIR)/etc/udev/rules.d/
 
 	install -Dm 0644 sysctl.d/99-powersave.conf $(DESTDIR)/etc/sysctl.d/99-powersave.conf
-	install -Dm 0644 tmpfiles.d/powersave.conf $(DESTDIR)/etc/tmpfiles.d/powersave.conf
-	install -Dm 0644 systemd/powersave.service $(DESTDIR)/etc/systemd/system/powersave.service
-	install -Dm 0644 modprobe.d/powersave.conf $(DESTDIR)/etc/modprobe.d/powersave.conf
-	install -Dm 0644 modprobe.d/blacklist.conf $(DESTDIR)/etc/modprobe.d/blacklist.conf
-	install -Dm 0644 rules.d/* $(DESTDIR)/etc/udev/rules.d/
+	install -Dm 0644 tmpfiles.d/powersave.conf  $(DESTDIR)/etc/tmpfiles.d/powersave.conf
+	install -Dm 0644 systemd/powersave.service  $(DESTDIR)/etc/systemd/system/powersave.service
+	install -Dm 0644 modprobe.d/powersave.conf  $(DESTDIR)/etc/modprobe.d/powersave.conf
+	install -Dm 0644 modprobe.d/blacklist.conf  $(DESTDIR)/etc/modprobe.d/blacklist.conf
+	install -Dm 0644 rules.d/*                  $(DESTDIR)/etc/udev/rules.d/
 
 uninstall:
 	rm -r /etc/sysctl.d/powersave.conf
