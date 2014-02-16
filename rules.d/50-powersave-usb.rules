@@ -1,4 +1,4 @@
 # vim: ft=udevrules
-ACTION=="add", SUBSYSTEM=="usb", ATTR{power/autosuspend}="1"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{power/autosuspend}="5"
 ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="auto"
 #ACTION=="add", SUBSYSTEM=="usb", ATTR{power/level}="auto"
