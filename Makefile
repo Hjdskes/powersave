@@ -2,7 +2,7 @@ install:
 	install -Dm 0644 sysctl.d/powersave.conf $(DESTDIR)/etc/systctl.d/powersave.conf
 	install -Dm 0644 modprobe.d/powersave.conf $(DESTDIR)/etc/modprobe.d/powersave.conf
 	install -Dm 0644 modprobe.d/blacklist.conf $(DESTDIR)/etc/modprobe.d/blacklist.conf
-	install -Dm 0644 rules./* $(DESTDIR)/lib/udev/rules.d/
+	install -Dm 0644 rules.d/* $(DESTDIR)/lib/udev/rules.d/
 
 uninstall:
 	rm -r /etc/sysctl.d/powersave.conf
