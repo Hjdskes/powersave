@@ -1,0 +1,14 @@
+[Unit]
+Description=Reapply hdparm settings on resume
+After=suspend.target
+After=hibernate.target
+After=hybrid-sleep.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/hdparm -S 4 -B 254 -a 2048 /dev/sda
+
+[Install]
+WantedBy=suspend.target
+WantedBy=hibernate.target
+WantedBy=hybrid-sleep.target
