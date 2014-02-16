@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", RUN+="/sbin/hdparm -S 4 -B 254 -a 2048 /dev/$kernel" 

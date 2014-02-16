@@ -1,0 +1,6 @@
+# vim: ft=udevrules
+ACTION=="add", KERNEL=="acpi_video0", SUBSYSTEM=="backlight", SUBSYSTEMS=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", ATTR{brightness}="50"
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/usr/bin/xset +dpms dpms 0 0 120"
+
+ACTION=="add", KERNEL=="acpi_video0", SUBSYSTEM=="backlight", SUBSYSTEMS=="pci", SUBSYSTEMS=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", DRIVERS=="i915", ATTR{brightness}="100"
+SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/usr/bin/xset -dpms"

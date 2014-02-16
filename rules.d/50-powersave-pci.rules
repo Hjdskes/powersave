@@ -1,0 +1,2 @@
+# vim: ft=udevrules
+ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"

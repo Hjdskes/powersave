@@ -3,6 +3,8 @@ Powersave
 
 This is a powersaving script for Linux. Initially, I've created it for my own laptop. That means that this script will **not** work on every setup so please **check** this before running it on your computer! Things might break otherwise and I will **not** be responsible for any damage that has been done.
 
+fstab: commit=15
+
 Installation
 ------------
 

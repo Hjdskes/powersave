@@ -1,1 +1,0 @@
-ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*" RUN+="/sbin/ip link set dev %k down"
