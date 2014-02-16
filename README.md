@@ -24,6 +24,6 @@ Configuration
 
 Things you should edit, should you use this on your setup:
 * ASPM powersave; this option is safe! To be able to write to this file you have to use a kernel parameter at boot: `pcie_aspm=force`
-* Disk powersave; I have only one HDD (laptop). If you have multiple HDD's and want to run powersave on all of them, you should modify `rules.d/50-powersave-hdparm.rules` and `systemd/powersave.service'.
+* Disk powersave; I have only one HDD (laptop). If you have multiple HDD's and want to run powersave on all of them, you should modify `rules.d/50-powersave-hdparm.rules` and `systemd/powersave.service`.
 Also, note that I use `-B254`. I hate the clicking noises my HDD would make otherwise, but this is not power-efficient. If you want maximum powersave, use `-B1`. **THIS CAN HURT YOUR HARDDRIVE, SO BE CAREFUL.**
 * Screen powersave; this option is safe! The numbers of brightness differ per manufacturer. You should check yours. Do so by setting your screen on maximum brightness and then running `cat /sys/class/backlight/acpi_video*/brightness`
