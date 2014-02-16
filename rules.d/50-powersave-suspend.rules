@@ -1,2 +1,0 @@
-# vim: ft=udevrules
-SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="2", RUN+="/usr/bin/systemctl suspend"
