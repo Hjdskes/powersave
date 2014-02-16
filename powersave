@@ -13,5 +13,4 @@ for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_po
 #iw dev wlp3s0 set power_save on &> /dev/null
 # screen powersave
 #for i in /sys/class/backlight/acpi_video*/brightness; do echo 50 > $i; done
-#xset +dpms
-#xset dpms 0 0 120
+#xset +dpms dpms 0 0 120
