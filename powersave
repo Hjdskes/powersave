@@ -1,16 +1,9 @@
-# bus
-for i in /sys/bus/*/devices/*/power/control; do echo auto > $i; done
-# cpu
-for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo powersave > $i; done
-# aspm
-echo powersave > /sys/module/pcie_aspm/parameters/policy
-# disk powersave
+# disk powersave - test if hdparm still applies after suspend
 #hdparm -S 4 -B 254 -a 2048 /dev/sda &> /dev/null
-#mount -o remount,commit=600 / &> /dev/null
-#mount -o remount,commit=600 /home &> /dev/null
+# do i want this permanently? can cause delays
 for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
-# wlan0 powersave
+# wlan0 powersave - verify
 #iw dev wlp3s0 set power_save on &> /dev/null
-# screen powersave
+# screen powersave - fix and test
 #for i in /sys/class/backlight/acpi_video*/brightness; do echo 50 > $i; done
 #xset +dpms dpms 0 0 120
