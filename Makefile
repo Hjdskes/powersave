@@ -18,4 +18,5 @@ uninstall:
 	rm -r /etc/udev/rules.d/50-powersave-hdparm.rules
 	rm -r /etc/udev/rules.d/50-powersave-net.rules
 	rm -r /etc/udev/rules.d/50-powersave-pci.rules
+	rm -f /etc/udev/rules.d/50-powersave-suspend.rules
 	rm -r /etc/udev/rules.d/50-powersave-usb.rules
