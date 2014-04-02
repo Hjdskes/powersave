@@ -1,9 +1,2 @@
-# disk powersave - test if hdparm still applies after suspend
-#hdparm -S 4 -B 254 -a 2048 /dev/sda &> /dev/null
 # do i want this permanently? can cause delays
 for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
-# wlan0 powersave - verify
-#iw dev wlp3s0 set power_save on &> /dev/null
-# screen powersave - fix and test
-#for i in /sys/class/backlight/acpi_video*/brightness; do echo 50 > $i; done
-#xset +dpms dpms 0 0 120
