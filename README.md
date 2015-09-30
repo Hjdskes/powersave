@@ -48,4 +48,4 @@ In Arch Linux, add this list to `/etc/modprobe.d/blacklist.conf` to have them al
 ToDo
 ----
 
-* Set more aggresive power savings
+* Set more aggressive power savings
