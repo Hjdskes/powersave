@@ -1,5 +1,2 @@
-# vim: ft=udevrules
-ACTION=="add", SUBSYSTEM=="usb", ATTR{power/autosuspend}="5"
-ACTION=="add", SUBSYSTEM=="usb", ATTR{power/control}="auto"
-#ACTION=="add", SUBSYSTEM=="usb", ATTR{power/level}="auto"
-ACTION=="add", SUBSYSTEM=="usb", ATTR{product}=="USB Receiver", ATTR{power/control}="on"
+# USB Autosuspend.
+ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"

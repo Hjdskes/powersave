@@ -1,2 +1,2 @@
-# vim: ft=udevrules
+# Suspend when battery is at 2%
 SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="2", RUN+="/usr/bin/systemctl suspend"

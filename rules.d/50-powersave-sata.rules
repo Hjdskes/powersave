@@ -1,0 +1,5 @@
+# SATA Active Link Power Management
+# This does add latency to drives that have been idle, so perhaps one should toggle this setting
+# whether or not the system is on AC. TODO: decide on this.
+# WARNING: This can lead to data loss on some devices.
+ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="min_power"

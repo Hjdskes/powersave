@@ -1,2 +1,0 @@
-# do i want this permanently? can cause delays
-for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done

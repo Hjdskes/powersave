@@ -1,2 +1,2 @@
-# vim: ft=udevrules
+# PCI Runtime power management
 ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"
