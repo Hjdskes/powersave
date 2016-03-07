@@ -1,13 +1,19 @@
+PREFIX ?= /usr/local
+LIBPREFIX = ${PREFIX}/lib
+
 install:
-	install -Dm 0644 sysctl.d/*   $(DESTDIR)/usr/lib/sysctl.d/
-	install -Dm 0644 tmpfiles.d/* $(DESTDIR)/usr/lib/tmpfiles.d/
-	install -Dm 0644 modprobe.d/* $(DESTDIR)/usr/lib/modprobe.d/
-	install -Dm 0644 rules.d/*    $(DESTDIR)/usr/lib/udev/rules.d/
+	install -d ${DESTDIR}${LIBPREFIX}/sysctl.d ${DESTDIR}${LIBPREFIX}/tmpfiles.d \
+		${DESTDIR}${LIBPREFIX}/modprobe.d ${DESTDIR}${LIBPREFIX}/udev/rules.d
+	install -Dm 0644 sysctl.d/*   ${DESTDIR}${LIBPREFIX}/sysctl.d/
+	install -Dm 0644 tmpfiles.d/* ${DESTDIR}${LIBPREFIX}/tmpfiles.d/
+	install -Dm 0644 modprobe.d/* ${DESTDIR}${LIBPREFIX}/modprobe.d/
+	install -Dm 0644 rules.d/*    ${DESTDIR}${LIBPREFIX}/udev/rules.d/
 
 uninstall:
-	rm -f /usr/lib/sysctl.d/99-powersave.conf
-	rm -f /usr/lib/tmpfiles.d/powersave.conf
-	rm -f /usr/lib/modprobe.d/powersave.conf
-	rm -f /usr/lib/modprobe.d/blacklist.conf
-	rm -f /usr/lib/udev/rules.d/50-powersave-*.rules
+	rm -f ${LIBPREFIX}/sysctl.d/99-powersave.conf
+	rm -f ${LIBPREFIX}/tmpfiles.d/powersave.conf
+	rm -f ${LIBPREFIX}/modprobe.d/powersave.conf
+	rm -f ${LIBPREFIX}/modprobe.d/blacklist.conf
+	rm -f ${LIBPREFIX}/udev/rules.d/50-powersave-*.rules
 
+.PHONY: install uninstall
