@@ -1,8 +1,8 @@
 # Disable Wake-on-LAN
-ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*", RUN+="/usr/bin/ethtool -s %k wol d"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="enp*", RUN+="/usr/bin/ethtool -s %k wol d"
 
 # Disable ethernet ports
-ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*" RUN+="/usr/bin/ip link set dev %k down"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="enp*", RUN+="/usr/bin/ip link set dev %k down"
 
 # Enable powersaving on all wireless devices
-ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlan*", RUN+="/usr/bin/iw dev %k set power_save on"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlp*", RUN+="/usr/bin/iw dev %k set power_save on"
