@@ -1,2 +1,8 @@
 # USB Autosuspend.
+
+# Blacklist Logitech USB Mouse.
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c52f", GOTO="power_usb_rules_end"
+
 ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
+
+LABEL="power_usb_rules_end"
