@@ -29,8 +29,6 @@ otherwise and I am **not** responsible for any damage that has been done.
 TODO
 ----
 
-* `xset` requires X to run. Obviously this isn't happening upon boot (and ~/.Xauthority is not
-  present, either)
 * `git grep TODO`
 * Test the suspend-on-low-battery udev rule (`rules.d/50-powersave-suspend.rules`)
 * SSD powersaving?
@@ -42,15 +40,11 @@ Installation
 The script will need the following dependencies to run:
 * iw
 * ip
-* xset
 * ethtool
 * udev
 * systemd
 
-Just run `make install` as root to install the whole set. Be aware that by default, this will try to
-get the `DISPLAY` and `USER` from the current environment. If you want to set these yourself, run
-`make install DPY="<display>" USR="<user>"`. These two variables are necessary to get the brightness
-udev rule to work, see commit "Fix brightness udev rule".
+Just run `make install` as root to install the whole set.
 
 To enable the ASPM setting to work, append `pcie_aspm=force` to your kernel parameter list. However,
 before doing so, verify that all PCIe hardware on your system support ASPM!

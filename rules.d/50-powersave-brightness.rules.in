@@ -1,3 +1,0 @@
-# Display Power Management Signaling
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", ENV{DISPLAY}="DPY", ENV{XAUTHORITY}="/home/USER/.Xauthority", RUN+="/usr/bin/xset dpms 120 240 360"
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", ENV{DISPLAY}="DPY", ENV{XAUTHORITY}="/home/USER/.Xauthority", RUN+="/usr/bin/xset dpms 300 450 600"
